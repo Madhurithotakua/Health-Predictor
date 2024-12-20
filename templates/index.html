@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Issue Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8fd3f4, #84fab0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 32px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        label {
+            text-align: left;
+            font-size: 16px;
+            margin-top: -10px; 
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #27ae60;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e8449;
+        }
+
+        footer {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #414747;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Issue Predictor</h1>
+        <form action="/predict" method="POST">
+            <label for="character">Character Name:</label>
+            <input type="text" id="character" name="character" required><br><br>
+
+            <label for="diet">Diet:</label>
+            <input list="diet-options" id="diet" name="diet">
+            <datalist id="diet-options">
+                {% for diet in diets %}
+                    <option value="{{ diet }}">
+                {% endfor %}
+            </datalist><br><br>
+
+            <label for="exercise">Exercise Routine:</label>
+            <input list="exercise-options" id="exercise" name="exercise">
+            <datalist id="exercise-options">
+                {% for exercise in exercises %}
+                    <option value="{{ exercise }}">
+                {% endfor %}
+            </datalist><br><br>
+
+            <label for="medical_history">Medical History:</label>
+            <input list="medical-history-options" id="medical_history" name="medical_history">
+            <datalist id="medical-history-options">
+                {% for medical_history in medical_histories %}
+                    <option value="{{ medical_history }}">
+                {% endfor %}
+            </datalist><br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+        <footer>
+            &copy; 2024 Health Predictor. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Issue Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8fd3f4, #84fab0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 60px 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 35px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #34495e;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #313435;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Issue Prediction Result</h1>
+        <p><span class="highlight">Character:</span> {{ character }}</p>
+        <p><span class="highlight">Predicted Health Issue:</span> {{ predicted_health_issue }}</p>
+        <footer>&copy; 2024 Health Predictor</footer>
+    </div>
+</body>
+</html>
